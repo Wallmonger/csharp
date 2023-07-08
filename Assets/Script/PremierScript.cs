@@ -20,12 +20,12 @@ public class PremierScript : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.UpArrow))
         {
-            transform.Translate(0,0,1);
+            transform.Translate(Vector3.forward * Time.deltaTime);  // Toujours multiplier par Time.deltaTime pour ajuster la vitesse au framerate
         }
 
         if(Input.GetKey(KeyCode.DownArrow))
         {
-            transform.Translate(0,0,-1);
+            
         }
 
         if(Input.GetKey(KeyCode.Space))
