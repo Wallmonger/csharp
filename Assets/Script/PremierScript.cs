@@ -50,6 +50,7 @@ public class PremierScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
+        // On supprime l'objet lié au collider
         Destroy(other.gameObject);
     }
 
