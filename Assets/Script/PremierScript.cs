@@ -41,6 +41,12 @@ public class PremierScript : MonoBehaviour
             rb.velocity = (Vector3.right * Time.deltaTime * speed * 100);
         }
 
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            rb.AddForce(Vector3.up * 150);
+        }
+
     }
 
     private void OnMouseUp() 
