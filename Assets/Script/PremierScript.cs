@@ -7,7 +7,7 @@ public class PremierScript : MonoBehaviour
     public Rigidbody rb;
     public Renderer rend;
 
-
+    float speed = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -18,30 +18,29 @@ public class PremierScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if(Input.GetKey(KeyCode.UpArrow))
         {
-            transform.Translate(Vector3.forward * Time.deltaTime);  // Toujours multiplier par Time.deltaTime pour ajuster la vitesse au framerate
+            //transform.Translate(Vector3.forward * Time.deltaTime * speed);   Toujours multiplier par Time.deltaTime pour ajuster la vitesse au framerate
+            rb.velocity = (Vector3.forward * Time.deltaTime * speed * 100);
         }
 
         if(Input.GetKey(KeyCode.DownArrow))
         {
-            
+            rb.velocity = (Vector3.back * Time.deltaTime * speed * 100);
         }
-
-        if(Input.GetKey(KeyCode.Space))
-        {
-            transform.Translate(0,1,0);
-        }
-
+        
         if(Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(-1,0,0);
+            rb.velocity = (Vector3.left * Time.deltaTime * speed * 100);
         }
 
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(1,0,0);
+            rb.velocity = (Vector3.right * Time.deltaTime * speed * 100);
         }
+
     }
 
     private void OnMouseUp() 
@@ -51,6 +50,5 @@ public class PremierScript : MonoBehaviour
         rb.useGravity = true; 
     }
 
-    
 
 }
