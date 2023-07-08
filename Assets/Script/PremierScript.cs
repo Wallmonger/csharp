@@ -22,23 +22,22 @@ public class PremierScript : MonoBehaviour
 
         if(Input.GetKey(KeyCode.UpArrow))
         {
-            //transform.Translate(Vector3.forward * Time.deltaTime * speed);   Toujours multiplier par Time.deltaTime pour ajuster la vitesse au framerate
-            rb.velocity = (Vector3.forward * Time.deltaTime * speed * 100);
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);  
         }
 
         if(Input.GetKey(KeyCode.DownArrow))
         {
-            rb.velocity = (Vector3.back * Time.deltaTime * speed * 100);
+             transform.Translate(Vector3.back * Time.deltaTime * speed);  
         }
         
         if(Input.GetKey(KeyCode.LeftArrow))
         {
-            rb.velocity = (Vector3.left * Time.deltaTime * speed * 100);
+             transform.Translate(Vector3.left * Time.deltaTime * speed);  
         }
 
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            rb.velocity = (Vector3.right * Time.deltaTime * speed * 100);
+            transform.Translate(Vector3.right * Time.deltaTime * speed);  
         }
 
 
@@ -48,6 +47,12 @@ public class PremierScript : MonoBehaviour
         }
 
     }
+
+    private void OnTriggerEnter(Collider other) 
+    {
+        Destroy(other.gameObject);
+    }
+
 
     private void OnMouseUp() 
     {
